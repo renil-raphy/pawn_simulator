@@ -1,0 +1,36 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Pawn Simulator</title>
+    <meta name="description" content="A simple project to simulate the pawn of the chess game.">
+    <meta name="author" content="Renil">
+  </head>
+
+  <body>
+    <h1>Pawn Simulator</h1>
+
+    <%= form_with url: pawn_movements_path, remote: :false do |form| %>
+      <p>
+        <%= form.text_area :commands, cols: 30, rows: 10, value: params[:commands] %>
+      </p>
+      <p>
+        <%= form.submit "Locate Pawn" %>
+      </p>
+    <% end %>
+
+    <p><%= @output %></p>
+
+<turbo-stream action="action_to_take" target="element_to_update">
+  <template>
+    <div id="element_to_update">
+      <!-- Some more html -->
+    </div>
+  </template>
+</turbo-stream>
+
+  </body>
+</html>
